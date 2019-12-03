@@ -10,10 +10,7 @@ import android.widget.Button;
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 
-import butterknife.BindView;
-
 public class MainFragment extends Fragment {
-//    @BindView(R.id.btn_login_into_activity)
     Button buttonLogin;
 
 
@@ -25,12 +22,9 @@ public class MainFragment extends Fragment {
         // Snippet from "Navigate to the next Fragment" section goes here.
 
         buttonLogin = view.findViewById(R.id.btn_login_into_activity);
-        buttonLogin.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(getActivity(), LoginActivity.class);
-                startActivity(intent);
-            }
+        buttonLogin.setOnClickListener((v) -> {
+            Intent intent = new Intent(getActivity(), LoginActivity.class);
+            startActivity(intent);
         });
         return view;
     }
