@@ -3,4 +3,6 @@
     <string name="login">로그인/회원가입</string>
     <string name="bus_reservation">버스 예매</string>
     <string name="confirm_ticket">예매 티켓 확인</string>
+    <string name="confirm_payment_history">결제 내역 확인</string>
+    <string name="register_payment_method">결제 방법 등록</string>
 </resources>
