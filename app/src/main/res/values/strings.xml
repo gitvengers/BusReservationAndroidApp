@@ -20,4 +20,12 @@
     <string name="sign_up_user_name">사용자 이름</string>
     <string name="sign_up_user_email">이메일</string>
     <string name="sign_up_btn_sign_up">등록</string>
+
+    <!--  Search Bus Activity  -->
+    <string name="search_bus_header">버스 검색</string>
+    <string name="search_bus_input_text_departure">출발지</string>
+    <string name="search_bus_input_text_arrival">도착지</string>
+    <string name="search_bus_input_start_date">출발 날짜</string>
+    <string name="search_bus_btn_search">검색</string>
+
 </resources>
