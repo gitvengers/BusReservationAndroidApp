@@ -2,7 +2,22 @@
     <string name="app_name">BusReservation</string>
     <string name="login">로그인/회원가입</string>
     <string name="bus_reservation">버스 예매</string>
+    <string name="register_bus">버스 등록</string>
     <string name="confirm_ticket">예매 티켓 확인</string>
     <string name="confirm_payment_history">결제 내역 확인</string>
     <string name="register_payment_method">결제 방법 등록</string>
+    <string name="management_member_info">회원 정보 관리</string>
+
+    <!-- Login Activity -->
+    <string name="login_hint_user_id">아이디</string>
+    <string name="login_hint_user_password">비밀 번호</string>
+    <string name="login_btn_cancel">취소</string>
+    <string name="login_btn_login">로그인</string>
+    <string name="login_btn_sign_up">회원가입</string>
+
+    <!--  Sign Up Activity  -->
+    <string name="sign_up_header">회원 가입</string>
+    <string name="sign_up_user_name">사용자 이름</string>
+    <string name="sign_up_user_email">이메일</string>
+    <string name="sign_up_btn_sign_up">등록</string>
 </resources>

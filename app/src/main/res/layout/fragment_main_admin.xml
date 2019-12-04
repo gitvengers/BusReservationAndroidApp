@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainMemberFragment">
+    tools:context=".MainAdminFragment">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
@@ -37,7 +37,7 @@
             android:layout_height="0dp"
             android:background="@color/primaryTextColor"
             android:fontFamily="sans-serif-medium"
-            android:text="@string/confirm_ticket"
+            android:text="@string/register_bus"
             android:textColor="@color/primaryColor"
             android:textSize="30sp"
             android:textStyle="bold"
@@ -74,10 +74,9 @@
             android:layout_height="0dp"
             android:background="@color/primaryTextColor"
             android:fontFamily="sans-serif-medium"
-            android:text="@string/register_payment_method"
+            android:text="@string/management_member_info"
             android:textColor="@color/primaryColor"
             android:textSize="30sp"
-
             android:textStyle="bold"
             app:strokeColor="@color/strokeColor"
             app:strokeWidth="1dp"
