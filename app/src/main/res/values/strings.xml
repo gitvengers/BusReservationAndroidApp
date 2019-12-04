@@ -25,7 +25,7 @@
     <string name="search_bus_header">버스 검색</string>
     <string name="search_bus_input_text_departure">출발지</string>
     <string name="search_bus_input_text_arrival">도착지</string>
-    <string name="search_bus_input_start_date">출발 날짜</string>
+    <string name="search_bus_input_start_date">가는 날</string>
     <string name="search_bus_btn_search">검색</string>
 
 </resources>
