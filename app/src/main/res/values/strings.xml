@@ -28,4 +28,7 @@
     <string name="search_bus_input_start_date">가는 날</string>
     <string name="search_bus_btn_search">검색</string>
 
+
+    <!--  Bus List Activity  -->
+    <string name="bus_list_header">배차 조회</string>
 </resources>
