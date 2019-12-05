@@ -4,6 +4,8 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
 
+import com.oreo.busreservation.domain.Member;
+
 public class MainActivity extends AppCompatActivity {
 
     @Override
@@ -15,6 +17,13 @@ public class MainActivity extends AppCompatActivity {
             getSupportFragmentManager()
                     .beginTransaction()
                     .add(R.id.container, new MainFragment())
+                    .commit();
+        }
+
+        if (Member.getInstance().getUserId() != null) {
+            getSupportFragmentManager()
+                    .beginTransaction()
+                    .add(R.id.container, new MainMemberFragment())
                     .commit();
         }
     }
