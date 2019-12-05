@@ -12,6 +12,7 @@ import androidx.fragment.app.Fragment;
 
 public class MainFragment extends Fragment {
     Button buttonLogin;
+    Button buttonSearchBus;
 
 
     @Override
@@ -24,6 +25,12 @@ public class MainFragment extends Fragment {
         buttonLogin = view.findViewById(R.id.btn_login_into_activity);
         buttonLogin.setOnClickListener((v) -> {
             Intent intent = new Intent(getActivity(), LoginActivity.class);
+            startActivity(intent);
+        });
+
+        buttonSearchBus = view.findViewById(R.id.btn_bus_search);
+        buttonSearchBus.setOnClickListener((v) -> {
+            Intent intent = new Intent(getActivity(), SearchBusActivity.class);
             startActivity(intent);
         });
         return view;
