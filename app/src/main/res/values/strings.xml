@@ -31,4 +31,6 @@
 
     <!--  Bus List Activity  -->
     <string name="bus_list_header">배차 조회</string>
+    <string name="bus_list_btn_before_day">&lt;</string>
+    <string name="bus_list_btn_after_day">&gt;</string>
 </resources>
