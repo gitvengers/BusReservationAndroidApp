@@ -8,9 +8,10 @@ import android.widget.EditText;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.oreo.busreservation.domain.Member;
 import com.oreo.busreservation.retrofit.NetworkHelper;
 
+import butterknife.BindView;
+import butterknife.ButterKnife;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -19,11 +20,15 @@ public class LoginActivity extends AppCompatActivity {
     Button loginButton;
     EditText idEditText;
     EditText pwEditText;
+    @BindView(R.id.signup_button)
+    Button signupButton;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
+
+        ButterKnife.bind(this);
         loginButton = findViewById(R.id.next_button);
         idEditText = findViewById(R.id.id_edit_text);
         pwEditText = findViewById(R.id.password_edit_text);
@@ -54,6 +59,11 @@ public class LoginActivity extends AppCompatActivity {
 
                 }
             });
+        });
+
+        signupButton.setOnClickListener(view->{
+            Intent intent = new Intent(getApplication(), SignUpActivity.class);
+            startActivity(intent);
         });
     }
 }
