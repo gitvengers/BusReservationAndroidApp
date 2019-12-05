@@ -10,14 +10,19 @@ import android.widget.Button;
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 
+import com.oreo.busreservation.domain.Member;
+
 public class MainMemberFragment extends Fragment {
     Button buttonSearchBus;
+    Button buttonMyPage;
 
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_main_member, container, false);
 
-        buttonSearchBus = view.findViewById(R.id.btn_search_bus);
+        buttonMyPage = view.findViewById(R.id.btn_my_page);
+        buttonMyPage.setText(Member.getInstance().toString());
+        buttonSearchBus = view.findViewById(R.id.btn_bus_search);
         buttonSearchBus.setOnClickListener((v) -> {
             Intent intent = new Intent(getActivity(), SearchBusActivity.class);
             startActivity(intent);
