@@ -10,8 +10,6 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.oreo.busreservation.retrofit.NetworkHelper;
 
-import java.lang.reflect.Member;
-
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import retrofit2.Call;
@@ -43,6 +41,16 @@ public class LoginActivity extends AppCompatActivity {
             member.enqueue(new Callback<Member>() {
                 @Override
                 public void onResponse(Call<Member> call, Response<Member> response) {
+                    Member member = response.body();
+                    if (member == null) {
+
+                    } else {
+                        Member.getInstance().setMember(member);
+                        Intent intent = new Intent(getApplication(), MainActivity.class);
+                        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK);
+                        startActivity(intent);
+                        finish();
+                    }
 
                 }
 

@@ -24,6 +24,8 @@ public class Member {
     @Expose
     private String email;
 
+    private static Member user = new Member();
+
     public int getId() {
         return id;
     }
@@ -64,14 +66,22 @@ public class Member {
         this.email = email;
     }
 
+    public static Member getInstance() {
+        return user;
+    }
+
+    public void setMember(Member member) {
+        this.id = member.getId();
+        this.userId = member.getUserId();
+        this.userPw = member.getUserPw();
+        this.name = member.getName();
+        this.email = member.getEmail();
+    }
+
     @Override
     public String toString() {
-        return "Member{" +
-                "id=" + id +
-                ", userId='" + userId + '\'' +
-                ", userPw='" + userPw + '\'' +
-                ", name='" + name + '\'' +
-                ", email='" + email + '\'' +
-                '}';
+        StringBuilder sb = new StringBuilder();
+        sb.append(getName()).append("님 환영합니다. 마이페이지");
+        return sb.toString();
     }
 }
