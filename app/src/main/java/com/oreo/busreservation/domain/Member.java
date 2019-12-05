@@ -71,11 +71,11 @@ public class Member {
     }
 
     public void setMember(Member member) {
-        setId(member.getId());
-        setUserId(member.getUserId());
-        setUserPw(member.getUserPw());
-        setName(member.getName());
-        setEmail(member.getEmail());
+        this.id = member.getId();
+        this.userId = member.getUserId();
+        this.userPw = member.getUserPw();
+        this.name = member.getName();
+        this.email = member.getEmail();
     }
 
     @Override
