@@ -10,14 +10,24 @@ import android.widget.Button;
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 
+import com.oreo.busreservation.domain.Member;
+
+import butterknife.BindView;
+import butterknife.ButterKnife;
+
 public class MainMemberFragment extends Fragment {
+    @BindView(R.id.btn_bus_search)
     Button buttonSearchBus;
+
+    @BindView(R.id.btn_my_page)
+    Button buttonMyPage;
 
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_main_member, container, false);
+        ButterKnife.bind(view);
 
-        buttonSearchBus = view.findViewById(R.id.btn_search_bus);
+        buttonMyPage.setText(Member.getInstance().toString());
         buttonSearchBus.setOnClickListener((v) -> {
             Intent intent = new Intent(getActivity(), SearchBusActivity.class);
             startActivity(intent);

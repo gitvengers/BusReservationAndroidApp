@@ -23,6 +23,7 @@
         <activity android:name=".LoginActivity"></activity>
         <activity android:name=".SearchBusActivity"></activity>
         <activity android:name=".BusListActivity"></activity>
+        <activity android:name=".SignUpActivity"></activity>
     </application>
 
 </manifest>
