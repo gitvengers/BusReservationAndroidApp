@@ -3,6 +3,7 @@ package com.oreo.busreservation.retrofit;
 import com.oreo.busreservation.domain.Boolean;
 import com.oreo.busreservation.domain.Ticket;
 
+import java.lang.reflect.Member;
 import java.util.List;
 
 import retrofit2.Call;
@@ -19,7 +20,7 @@ public interface ApiService {
     Call<Ticket> getTicketDetail(@Path("id") int id);
 
     @GET("/user/login")
-    Call<Boolean> getMember(@Query("userID") String userID, @Query("userPWD") String userPWD);
+    Call<Member> getMember(@Query("userID") String userID, @Query("userPWD") String userPWD);
 
     @POST("/user/signup")
     Call<java.lang.Boolean> insertMember(@Query("userID") String userID,

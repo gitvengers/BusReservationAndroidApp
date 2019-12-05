@@ -11,6 +11,8 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.oreo.busreservation.domain.Boolean;
 import com.oreo.busreservation.retrofit.NetworkHelper;
 
+import java.lang.reflect.Member;
+
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import retrofit2.Call;
@@ -38,15 +40,15 @@ public class LoginActivity extends AppCompatActivity {
             String userId = idEditText.getText().toString();
             String userPw = pwEditText.getText().toString();
 
-            Call<Boolean> member = NetworkHelper.getInstance().getApiService().getMember(userId, userPw);
-            member.enqueue(new Callback<Boolean>() {
+            Call<Member> member = NetworkHelper.getInstance().getApiService().getMember(userId, userPw);
+            member.enqueue(new Callback<Member>() {
                 @Override
-                public void onResponse(Call<Boolean> call, Response<Boolean> response) {
+                public void onResponse(Call<Member> call, Response<Member> response) {
 
                 }
 
                 @Override
-                public void onFailure(Call<Boolean> call, Throwable t) {
+                public void onFailure(Call<Member> call, Throwable t) {
 
                 }
             });
