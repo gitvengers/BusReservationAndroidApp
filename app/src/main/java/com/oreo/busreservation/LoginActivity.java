@@ -8,7 +8,6 @@ import android.widget.EditText;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.oreo.busreservation.domain.Boolean;
 import com.oreo.busreservation.retrofit.NetworkHelper;
 
 import java.lang.reflect.Member;

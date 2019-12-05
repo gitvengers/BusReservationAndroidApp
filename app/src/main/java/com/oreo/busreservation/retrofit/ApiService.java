@@ -1,6 +1,5 @@
 package com.oreo.busreservation.retrofit;
 
-import com.oreo.busreservation.domain.Boolean;
 import com.oreo.busreservation.domain.Ticket;
 
 import java.lang.reflect.Member;
@@ -23,7 +22,7 @@ public interface ApiService {
     Call<Member> getMember(@Query("userID") String userID, @Query("userPWD") String userPWD);
 
     @POST("/user/signup")
-    Call<java.lang.Boolean> insertMember(@Query("userID") String userID,
+    Call<Boolean> insertMember(@Query("userID") String userID,
                                          @Query("userPWD") String userPWD,
                                          @Query("name") String name,
                                          @Query("email") String email

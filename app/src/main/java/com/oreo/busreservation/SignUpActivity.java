@@ -39,7 +39,7 @@ public class SignUpActivity extends AppCompatActivity {
             String name = nameEditText.getText().toString();
             String email = emailEditText.getText().toString();
 
-            Call<java.lang.Boolean> memberCall = NetworkHelper.getInstance().getApiService().insertMember(userId, userPw, name, email);
+            Call<Boolean> memberCall = NetworkHelper.getInstance().getApiService().insertMember(userId, userPw, name, email);
             memberCall.enqueue(new Callback<Boolean>() {
                 @Override
                 public void onResponse(Call<Boolean> call, Response<Boolean> response) {
