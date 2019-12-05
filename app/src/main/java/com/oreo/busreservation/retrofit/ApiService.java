@@ -1,12 +1,13 @@
 package com.oreo.busreservation.retrofit;
 
-import com.oreo.busreservation.domain.Member;
+import com.oreo.busreservation.domain.Boolean;
 import com.oreo.busreservation.domain.Ticket;
 
 import java.util.List;
 
 import retrofit2.Call;
 import retrofit2.http.GET;
+import retrofit2.http.POST;
 import retrofit2.http.Path;
 import retrofit2.http.Query;
 
@@ -18,5 +19,12 @@ public interface ApiService {
     Call<Ticket> getTicketDetail(@Path("id") int id);
 
     @GET("/user/login")
-    Call<Member> getMember(@Query("userID") String userID, @Query("userPWD") String userPWD);
+    Call<Boolean> getMember(@Query("userID") String userID, @Query("userPWD") String userPWD);
+
+    @POST("/user/signup")
+    Call<java.lang.Boolean> insertMember(@Query("userID") String userID,
+                                         @Query("userPWD") String userPWD,
+                                         @Query("name") String name,
+                                         @Query("email") String email
+                              );
 }

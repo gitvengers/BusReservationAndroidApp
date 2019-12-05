@@ -3,7 +3,7 @@ package com.oreo.busreservation.domain;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
-public class Member {
+public class Boolean {
     @SerializedName("id")
     @Expose
     private int id;
@@ -66,7 +66,7 @@ public class Member {
 
     @Override
     public String toString() {
-        return "Member{" +
+        return "Boolean{" +
                 "id=" + id +
                 ", userId='" + userId + '\'' +
                 ", userPw='" + userPw + '\'' +

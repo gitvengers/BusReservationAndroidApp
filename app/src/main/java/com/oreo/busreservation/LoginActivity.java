@@ -1,17 +1,18 @@
 package com.oreo.busreservation;
 
+import android.content.Intent;
 import android.os.Bundle;
-import android.text.Editable;
 import android.widget.Button;
 import android.widget.EditText;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.oreo.busreservation.domain.Member;
+import com.oreo.busreservation.domain.Boolean;
 import com.oreo.busreservation.retrofit.NetworkHelper;
 
 import butterknife.BindView;
+import butterknife.ButterKnife;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -20,11 +21,15 @@ public class LoginActivity extends AppCompatActivity {
     Button loginButton;
     EditText idEditText;
     EditText pwEditText;
+    @BindView(R.id.signup_button)
+    Button signupButton;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
+
+        ButterKnife.bind(this);
         loginButton = findViewById(R.id.next_button);
         idEditText = findViewById(R.id.id_edit_text);
         pwEditText = findViewById(R.id.password_edit_text);
@@ -33,18 +38,23 @@ public class LoginActivity extends AppCompatActivity {
             String userId = idEditText.getText().toString();
             String userPw = pwEditText.getText().toString();
 
-            Call<Member> member = NetworkHelper.getInstance().getApiService().getMember(userId, userPw);
-            member.enqueue(new Callback<Member>() {
+            Call<Boolean> member = NetworkHelper.getInstance().getApiService().getMember(userId, userPw);
+            member.enqueue(new Callback<Boolean>() {
                 @Override
-                public void onResponse(Call<Member> call, Response<Member> response) {
+                public void onResponse(Call<Boolean> call, Response<Boolean> response) {
 
                 }
 
                 @Override
-                public void onFailure(Call<Member> call, Throwable t) {
+                public void onFailure(Call<Boolean> call, Throwable t) {
 
                 }
             });
+        });
+
+        signupButton.setOnClickListener(view->{
+            Intent intent = new Intent(getApplication(), SignUpActivity.class);
+            startActivity(intent);
         });
     }
 }

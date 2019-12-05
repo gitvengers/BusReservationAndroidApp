@@ -26,12 +26,14 @@
 
         <!-- Snippet from "Add text fields" section goes here. -->
         <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/id_text_input"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="4dp"
             android:hint="@string/login_hint_user_id">
 
             <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/id_edit_text"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:inputType="text"
@@ -83,7 +85,7 @@
             android:layout_marginTop="@dimen/sign_up_header_margin_top">
 
             <Button
-                android:id="@+id/btn_sign_up"
+                android:id="@+id/signup_button"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignParentEnd="true"
@@ -94,7 +96,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginEnd="12dp"
-                android:layout_toStartOf="@id/btn_sign_up"
+                android:layout_toStartOf="@id/signup_button"
                 android:text="@string/login_btn_cancel" />
 
         </RelativeLayout>
