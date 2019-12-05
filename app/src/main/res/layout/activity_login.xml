@@ -21,6 +21,7 @@
             android:hint="@string/login_hint_user_id">
 
             <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/id_edit_text"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:inputType="text"
