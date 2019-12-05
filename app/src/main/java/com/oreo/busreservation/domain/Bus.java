@@ -2,6 +2,7 @@ package com.oreo.busreservation.domain;
 
 import java.sql.Timestamp;
 
+//todo 임시 Bus 객체
 public class Bus {
     private Timestamp departureTime;
     private String departure;

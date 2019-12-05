@@ -29,8 +29,10 @@ public class BusListActivity extends AppCompatActivity {
         LinearLayoutManager mLinearLayoutManager = new LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false);
 
         mRecyclerView.setLayoutManager(mLinearLayoutManager);
+        //todo retrofit으로 list를 받아와야 함.
         List<Bus> buses = Arrays.asList(new Bus(new Timestamp(System.currentTimeMillis()), "대전", "서울"));
         BusListAdapter busListAdapter = new BusListAdapter(buses);
+
         mRecyclerView.setAdapter(busListAdapter);
     }
 }
