@@ -66,7 +66,7 @@ public class Member {
 
     @Override
     public String toString() {
-        return "Boolean{" +
+        return "Member{" +
                 "id=" + id +
                 ", userId='" + userId + '\'' +
                 ", userPw='" + userPw + '\'' +
