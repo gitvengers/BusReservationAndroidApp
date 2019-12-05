@@ -1,9 +1,11 @@
 package com.oreo.busreservation;
 
 import android.app.DatePickerDialog;
+import android.content.Intent;
 import android.os.Bundle;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.Toast;
 
 import androidx.annotation.Nullable;
@@ -22,7 +24,10 @@ public class SearchBusActivity extends AppCompatActivity {
     EditText editText;
 
     @BindView(R.id.btn_select_departure_date)
-    Button selectDepartureDate;
+    ImageButton selectDepartureDate;
+
+    @BindView(R.id.btn_search_bus)
+    Button searchBus;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -42,7 +47,12 @@ public class SearchBusActivity extends AppCompatActivity {
 
             dialog.getDatePicker().setMinDate(new Date().getTime());    //입력한 날짜 이후로 클릭 안되게 옵션
             dialog.show();
-
         });
+
+        searchBus.setOnClickListener(view -> {
+            Intent intent = new Intent(getApplication(), BusListActivity.class);
+            startActivity(intent);
+        });
+
     }
 }
