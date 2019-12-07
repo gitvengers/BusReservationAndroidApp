@@ -12,14 +12,15 @@
         android:orientation="vertical"
         android:padding="24dp"
         android:paddingTop="16dp">
+
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/login_btn_login"
+            android:layout_marginTop="@dimen/common_margin_top1"
+            android:layout_marginBottom="@dimen/common_margin_bottom1"
             android:gravity="center_horizontal"
-            android:textSize="@dimen/common_header_1"
-            android:layout_marginTop="@dimen/common_margin_top"
-            android:layout_marginBottom="@dimen/common_margin_bottom"/>
+            android:text="@string/login_btn_login"
+            android:textSize="@dimen/common_header_1" />
 
         <!-- Snippet from "Add text fields" section goes here. -->
         <com.google.android.material.textfield.TextInputLayout

@@ -1,4 +1,7 @@
 <resources>
+    <!--  Common  -->
+    <string name="confirm">확인</string>
+    <!--  Main Activity  -->
     <string name="app_name">BusReservation</string>
     <string name="login">로그인/회원가입</string>
     <string name="bus_reservation">버스 예매</string>
@@ -21,16 +24,25 @@
     <string name="sign_up_user_email">이메일</string>
     <string name="sign_up_btn_sign_up">등록</string>
 
+    <!--  bus common  -->
+    <string name="bus_common_text_departure">출발지</string>
+    <string name="bus_common_text_departure_time">출발 시간</string>
+    <string name="bus_common_text_arrival">도착지</string>
+    <string name="bus_common_text_arrival_time">도착 시간</string>
+
     <!--  Search Bus Activity  -->
     <string name="search_bus_header">버스 검색</string>
-    <string name="search_bus_input_text_departure">출발지</string>
-    <string name="search_bus_input_text_arrival">도착지</string>
     <string name="search_bus_input_start_date">가는 날</string>
     <string name="search_bus_btn_search">검색</string>
-
 
     <!--  Bus List Activity  -->
     <string name="bus_list_header">배차 조회</string>
     <string name="bus_list_btn_before_day">&lt;</string>
     <string name="bus_list_btn_after_day">&gt;</string>
+
+    <!--  Bus Detail Activity  -->
+    <string name="bus_detail_header">버스 상세 정보</string>
+    <string name="bus_detail_company">버스 회사</string>
+    <string name="bus_detail_price">가격</string>
+    <string name="bus_detail_btn_reservation_ticket">예매</string>
 </resources>

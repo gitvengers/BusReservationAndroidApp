@@ -10,6 +10,8 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.oreo.busreservation.retrofit.NetworkHelper;
 
+import org.jetbrains.annotations.NotNull;
+
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -42,8 +44,8 @@ public class SignUpActivity extends AppCompatActivity {
             Call<Boolean> memberCall = NetworkHelper.getInstance().getApiService().insertMember(userId, userPw, name, email);
             memberCall.enqueue(new Callback<Boolean>() {
                 @Override
-                public void onResponse(Call<Boolean> call, Response<Boolean> response) {
-                    if(response.isSuccessful() == true){
+                public void onResponse(@NotNull Call<Boolean> call, @NotNull Response<Boolean> response) {
+                    if(response.isSuccessful()){
                         Toast.makeText(SignUpActivity.this,"success",Toast.LENGTH_SHORT).show();
                         onBackPressed();
                     }
@@ -53,7 +55,7 @@ public class SignUpActivity extends AppCompatActivity {
                 }
 
                 @Override
-                public void onFailure(Call<Boolean> call, Throwable t) {
+                public void onFailure(@NotNull Call<Boolean> call, @NotNull Throwable t) {
 
                 }
             });

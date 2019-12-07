@@ -4,12 +4,13 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:paddingLeft="24dp"
-    android:paddingRight="24dp">
+    android:padding="24dp">
 
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/common_margin_top2"
+        android:layout_marginBottom="@dimen/common_margin_bottom2"
         android:gravity="center_horizontal"
         android:text="@string/bus_list_header"
         android:textSize="@dimen/common_header_1" />
@@ -17,7 +18,8 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        android:paddingBottom="20dp">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
@@ -27,7 +29,7 @@
                 android:id="@+id/text_departure"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/search_bus_input_text_departure"
+                android:text="@string/bus_common_text_departure"
                 android:textSize="24sp"
                 app:layout_constraintLeft_toLeftOf="parent"
                 app:layout_constraintRight_toLeftOf="@id/input_text_departure"
@@ -47,7 +49,7 @@
                 android:id="@+id/text_arrival"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/search_bus_input_text_arrival"
+                android:text="@string/bus_common_text_arrival"
                 android:textSize="24sp"
                 app:layout_constraintHorizontal_bias="0.5"
                 app:layout_constraintLeft_toRightOf="@id/input_text_departure"
@@ -100,6 +102,12 @@
                 app:layout_constraintTop_toTopOf="parent" />
         </androidx.constraintlayout.widget.ConstraintLayout>
     </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="3dp"
+        android:layout_marginBottom="10dp"
+        android:background="@drawable/bottom_gray_border" />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recycler_bus_list"

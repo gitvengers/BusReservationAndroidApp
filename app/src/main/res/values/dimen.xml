@@ -4,8 +4,10 @@
     <dimen name="common_header_1">40sp</dimen>
     <dimen name="common_header_2">30sp</dimen>
     <dimen name="common_header_3">20sp</dimen>
-    <dimen name="common_margin_top">40dp</dimen>
-    <dimen name="common_margin_bottom">40dp</dimen>
+    <dimen name="common_margin_top1">40dp</dimen>
+    <dimen name="common_margin_top2">20dp</dimen>
+    <dimen name="common_margin_bottom1">40dp</dimen>
+    <dimen name="common_margin_bottom2">20dp</dimen>
 
     <!--  Sign Up Activity  -->
     <dimen name="sign_up_header_margin_top">40dp</dimen>
