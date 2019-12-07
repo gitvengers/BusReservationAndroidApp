@@ -1,5 +1,6 @@
 package com.oreo.busreservation.adapter;
 
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -8,6 +9,7 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.oreo.busreservation.BusDetailActivity;
 import com.oreo.busreservation.R;
 import com.oreo.busreservation.domain.Bus;
 
@@ -26,9 +28,14 @@ public class BusListAdapter extends RecyclerView.Adapter<BusListAdapter.CustomVi
 
         public CustomViewHolder(View view) {
             super(view);
-            this.departureTime = (TextView) view.findViewById(R.id.item_text_departure_time);
-            this.departure = (TextView) view.findViewById(R.id.item_text_departure);
-            this.arrival = (TextView) view.findViewById(R.id.item_text_arrival);
+            this.departureTime = view.findViewById(R.id.item_text_departure_time);
+            this.departure = view.findViewById(R.id.item_text_departure);
+            this.arrival = view.findViewById(R.id.item_text_arrival);
+
+            view.setOnClickListener(v -> {
+                Intent intent = new Intent(view.getContext(), BusDetailActivity.class);
+                view.getContext().startActivity(intent);
+            });
         }
     }
 
@@ -42,9 +49,7 @@ public class BusListAdapter extends RecyclerView.Adapter<BusListAdapter.CustomVi
         View view = LayoutInflater.from(parent.getContext())
                 .inflate(R.layout.item_bus_list, parent, false);
 
-        CustomViewHolder viewHolder = new CustomViewHolder(view);
-
-        return viewHolder;
+        return new CustomViewHolder(view);
     }
 
     @Override
