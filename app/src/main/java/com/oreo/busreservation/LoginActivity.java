@@ -8,6 +8,7 @@ import android.widget.EditText;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.oreo.busreservation.domain.Member;
 import com.oreo.busreservation.retrofit.NetworkHelper;
 
 import butterknife.BindView;
@@ -15,6 +16,8 @@ import butterknife.ButterKnife;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
+
+import static com.oreo.busreservation.domain.Member.setMember;
 
 public class LoginActivity extends AppCompatActivity {
     Button loginButton;
@@ -45,7 +48,7 @@ public class LoginActivity extends AppCompatActivity {
                     if (member == null) {
 
                     } else {
-                        Member.getInstance().setMember(member);
+                        setMember(member);
                         Intent intent = new Intent(getApplication(), MainActivity.class);
                         intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK);
                         startActivity(intent);
