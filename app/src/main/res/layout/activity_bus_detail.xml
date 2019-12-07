@@ -16,7 +16,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginBottom="@dimen/common_margin_bottom2"
-        android:background="@drawable/border"
+        android:background="@drawable/radius_border"
         android:orientation="vertical"
         android:padding="24dp">
 
