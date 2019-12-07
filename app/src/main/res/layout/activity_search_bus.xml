@@ -31,6 +31,7 @@
                 android:hint="@string/bus_common_text_departure">
 
                 <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/edit_departure_text"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:inputType="text"
@@ -45,6 +46,7 @@
                 android:hint="@string/bus_common_text_arrival">
 
                 <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/edit_arrival_text"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:inputType="text"

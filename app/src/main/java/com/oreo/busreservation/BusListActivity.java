@@ -10,7 +10,9 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.oreo.busreservation.adapter.BusListAdapter;
 import com.oreo.busreservation.domain.Bus;
 
+import java.io.Serializable;
 import java.sql.Timestamp;
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
@@ -30,8 +32,11 @@ public class BusListActivity extends AppCompatActivity {
 
         mRecyclerView.setLayoutManager(mLinearLayoutManager);
         //todo retrofit으로 list를 받아와야 함.
-        List<Bus> buses = Arrays.asList(new Bus(new Timestamp(System.currentTimeMillis()), "대전", "서울"));
-        BusListAdapter busListAdapter = new BusListAdapter(buses);
+//        List<Bus> buses = Arrays.asList(new Bus(new Timestamp(System.currentTimeMillis()), "대전", "서울"));
+//        BusListAdapter busListAdapter = new BusListAdapter(buses);
+
+        ArrayList<Bus> busList = (ArrayList<Bus>)getIntent().getSerializableExtra("busList");
+        BusListAdapter busListAdapter = new BusListAdapter(busList);
 
         mRecyclerView.setAdapter(busListAdapter);
     }

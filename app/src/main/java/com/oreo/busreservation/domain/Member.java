@@ -70,12 +70,12 @@ public class Member {
         return user;
     }
 
-    public void setMember(Member member) {
-        this.id = member.getId();
-        this.userId = member.getUserId();
-        this.userPw = member.getUserPw();
-        this.name = member.getName();
-        this.email = member.getEmail();
+    public static void setMember(Member member) {
+        user.setId( member.getId());
+        user.setUserId(member.getUserId());
+        user.setUserPw(member.getUserPw());
+        user.setName(member.getName());
+        user.setEmail(member.getEmail());
     }
 
     @Override
