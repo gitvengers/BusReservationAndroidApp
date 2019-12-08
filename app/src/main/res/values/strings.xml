@@ -45,4 +45,14 @@
     <string name="bus_detail_company">버스 회사</string>
     <string name="bus_detail_price">가격</string>
     <string name="bus_detail_btn_reservation_ticket">예매</string>
+
+    <!--  Bus Register Activity  -->
+    <string name="bus_register_header">버스 등록</string>
+    <string name="bus_register_departure">출발지</string>
+    <string name="bus_register_arrival">도착지</string>
+    <string name="bus_register_depart_time">출발 시간</string>
+    <string name="bus_register_arrival_time">도착 시간</string>
+    <string name="bus_register_type">버스 타입</string>
+    <string name="bus_register_price">가격</string>
+
 </resources>
