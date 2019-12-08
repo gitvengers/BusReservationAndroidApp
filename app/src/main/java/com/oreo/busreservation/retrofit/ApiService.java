@@ -1,5 +1,6 @@
 package com.oreo.busreservation.retrofit;
 
+import com.oreo.busreservation.domain.Admin;
 import com.oreo.busreservation.domain.Bus;
 import com.oreo.busreservation.domain.Ticket;
 
@@ -34,4 +35,17 @@ public interface ApiService {
 
     @GET("/bus/list")
     Call<List<Bus>> getBusList(@Query("departure") String departure, @Query("arrival") String arrival, @Query("date") Timestamp date);
+
+    @POST("bus/register")
+    Call<Boolean> busRegister(@Query("departure") String departure,
+                              @Query("arrival") String arrival,
+                              @Query("depart_time") Timestamp depart_time,
+                              @Query("arrive_time") Timestamp arrive_time,
+                              @Query("type") String type,
+                              @Query("company") String company,
+                              @Query("price") int price
+                              );
+
+    @GET("/admin/login")
+    Call<Admin> getAdmin(@Query("adminID") String adminID, @Query("userPWD") String adminPWD);
 }
