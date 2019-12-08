@@ -1,6 +1,7 @@
 package com.oreo.busreservation;
 
 import android.os.Bundle;
+import android.widget.TextView;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
@@ -23,6 +24,12 @@ public class BusListActivity extends AppCompatActivity {
     @BindView(R.id.recycler_bus_list)
     RecyclerView mRecyclerView;
 
+    @BindView(R.id.input_text_departure)
+    TextView departureText;
+
+    @BindView(R.id.input_text_arrival)
+    TextView arrivalText;
+
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -36,6 +43,10 @@ public class BusListActivity extends AppCompatActivity {
 //        BusListAdapter busListAdapter = new BusListAdapter(buses);
 
         ArrayList<Bus> busList = (ArrayList<Bus>)getIntent().getSerializableExtra("busList");
+
+        departureText.setText(busList.get(0).getDeparture());
+        arrivalText.setText(busList.get(0).getArrival());
+
         BusListAdapter busListAdapter = new BusListAdapter(busList);
 
         mRecyclerView.setAdapter(busListAdapter);
