@@ -54,6 +54,6 @@ public class BusDetailActivity extends AppCompatActivity {
         detailArrivalTime.setText(time);
 
         detailBusCompany.setText(busDetail.getCompany());
-        detailTicketPrice.setText(busDetail.getPrice()+" 원");
+        detailTicketPrice.setText(busDetail.getPrice()+" ");
     }
 }
