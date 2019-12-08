@@ -29,6 +29,7 @@
             android:orientation="horizontal">
 
             <TextView
+                android:id="@+id/detail_departure_text"
                 android:layout_width="wrap_content"
                 android:layout_height="40dp"
                 android:gravity="center"
@@ -44,6 +45,7 @@
                 android:src="@drawable/play_button" />
 
             <TextView
+                android:id="@+id/detail_arrival_text"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/bus_common_text_arrival"

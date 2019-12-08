@@ -34,4 +34,7 @@ public interface ApiService {
 
     @GET("/bus/list")
     Call<List<Bus>> getBusList(@Query("departure") String departure, @Query("arrival") String arrival, @Query("date") Timestamp date);
+
+    @GET("/bus/detail")
+    Call<Bus> getBusDetail(@Query("busId") int busId);
 }

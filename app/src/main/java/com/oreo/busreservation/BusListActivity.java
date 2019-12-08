@@ -44,8 +44,8 @@ public class BusListActivity extends AppCompatActivity {
 
         ArrayList<Bus> busList = (ArrayList<Bus>)getIntent().getSerializableExtra("busList");
 
-        departureText.setText(busList.get(0).getDeparture());
-        arrivalText.setText(busList.get(0).getArrival());
+        departureText.setText(getIntent().getStringExtra("listDeparture"));
+        arrivalText.setText(getIntent().getStringExtra("listArrival"));
 
         BusListAdapter busListAdapter = new BusListAdapter(busList);
 
