@@ -36,11 +36,14 @@ public interface ApiService {
     @GET("/bus/list")
     Call<List<Bus>> getBusList(@Query("departure") String departure, @Query("arrival") String arrival, @Query("date") Timestamp date);
 
+    @GET("/bus/detail")
+    Call<Bus> getBusDetail(@Query("busId") int busId);
+
     @POST("bus/register")
     Call<Boolean> busRegister(@Query("departure") String departure,
                               @Query("arrival") String arrival,
-                              @Query("depart_time") Timestamp depart_time,
-                              @Query("arrive_time") Timestamp arrive_time,
+                              @Query("depart_time") long depart_time,
+                              @Query("arrive_time") long arrive_time,
                               @Query("type") String type,
                               @Query("company") String company,
                               @Query("price") int price
