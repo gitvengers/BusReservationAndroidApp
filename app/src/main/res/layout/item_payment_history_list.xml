@@ -70,5 +70,5 @@
         android:layout_marginRight="12dp"
         android:layout_weight="0.3"
         android:text="@string/payment_history_item_detail_info"
-        android:textSize="24sp"/>
+        android:textSize="22sp"/>
 </LinearLayout>
