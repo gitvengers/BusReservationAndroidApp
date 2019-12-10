@@ -39,34 +39,10 @@ public class MemberListAdapter extends RecyclerView.Adapter<MemberListAdapter.Cu
             this.memberID = view.findViewById(R.id.item_text_member_id);
             this.memberName = view.findViewById(R.id.item_text_member_name);
             this.memberEmail = view.findViewById(R.id.item_text_member_email);
-
-            view.setOnClickListener(v -> {
-                int adapterPosition = getAdapterPosition();
-                int memberID = mList.get(adapterPosition).getId();
-                System.out.println("ID : " + memberID);
-
-                //TODO : 멤버리스트 detail을 만들지 않고 받아올 수 있는 방법?
-
-//                Call<Member> memberDetail = NetworkHelper.getInstance().getApiService().getBusDetail(memberID);
-//                memberDetail.enqueue(new Callback<Bus>() {
-//                    @Override
-//                    public void onResponse(Call<Bus> call, Response<Bus> response) {
-//                        System.out.println("BODY : " + response.body());
-//                        Intent intent = new Intent(view.getContext(), BusDetailActivity.class);
-//                        intent.putExtra("busDetail", response.body());
-//                        view.getContext().startActivity(intent);
-//                    }
-//
-//                    @Override
-//                    public void onFailure(Call<Bus> call, Throwable t) {
-//
-//                    }
-//                });
-            });
         }
     }
 
-    public MemberListAdapter(List<Bus> mList) {
+    public MemberListAdapter(List<Member> mList) {
         this.mList = mList;
     }
 
@@ -82,13 +58,9 @@ public class MemberListAdapter extends RecyclerView.Adapter<MemberListAdapter.Cu
     @Override
     public void onBindViewHolder(@NonNull CustomViewHolder holder, int position) {
         // TODO : 여기도 마찬가지로, 백엔드를 건드리지 않게 하는 방법이 있으려나?
-        SimpleDateFormat departureTimeFormat = new SimpleDateFormat("HH:mm");
-        Date departureDate = new Date(mList.get(position).getDepartureTime());
-        String departureTime = departureTimeFormat.format(departureDate);
-
-        holder.departureTime.setText(departureTime);
-        holder.departure.setText(mList.get(position).getDeparture());
-        holder.arrival.setText(mList.get(position).getArrival());
+        holder.memberID.setText(mList.get(position).getId());
+        holder.memberName.setText(mList.get(position).getName());
+        holder.memberEmail.setText(mList.get(position).getEmail());
     }
 
     @Override
