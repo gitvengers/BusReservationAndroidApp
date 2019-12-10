@@ -1,5 +1,6 @@
 package com.oreo.busreservation.retrofit;
 
+import com.oreo.busreservation.domain.Admin;
 import com.oreo.busreservation.domain.Bus;
 import com.oreo.busreservation.domain.Ticket;
 
@@ -34,4 +35,25 @@ public interface ApiService {
 
     @GET("/bus/list")
     Call<List<Bus>> getBusList(@Query("departure") String departure, @Query("arrival") String arrival, @Query("date") Timestamp date);
+
+    @GET("/bus/detail")
+    Call<Bus> getBusDetail(@Query("busId") int busId);
+
+    @GET("/admin/member/list")
+    Call<List<Member>> getMemberList();
+
+    @POST("bus/register")
+    // depart_time is long???
+    // TODO : 백엔드에서는 TimeStamp로 입력받도록 되어있습니다. 확인 필요할듯
+    Call<Boolean> busRegister(@Query("departure") String departure,
+                              @Query("arrival") String arrival,
+                              @Query("depart_time") long depart_time,
+                              @Query("arrive_time") long arrive_time,
+                              @Query("type") String type,
+                              @Query("company") String company,
+                              @Query("price") int price
+                              );
+
+    @GET("/admin/login")
+    Call<Admin> getAdmin(@Query("adminID") String adminID, @Query("userPWD") String adminPWD);
 }

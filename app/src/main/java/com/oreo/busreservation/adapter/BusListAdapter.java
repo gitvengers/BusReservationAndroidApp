@@ -12,8 +12,16 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.oreo.busreservation.BusDetailActivity;
 import com.oreo.busreservation.R;
 import com.oreo.busreservation.domain.Bus;
+import com.oreo.busreservation.retrofit.NetworkHelper;
 
+import java.sql.Timestamp;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
+
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 
 public class BusListAdapter extends RecyclerView.Adapter<BusListAdapter.CustomViewHolder> {
@@ -33,8 +41,23 @@ public class BusListAdapter extends RecyclerView.Adapter<BusListAdapter.CustomVi
             this.arrival = view.findViewById(R.id.item_text_arrival);
 
             view.setOnClickListener(v -> {
-                Intent intent = new Intent(view.getContext(), BusDetailActivity.class);
-                view.getContext().startActivity(intent);
+                int adapterPosition = getAdapterPosition();
+                int busId = mList.get(adapterPosition).getBusId();
+
+                Call<Bus> busDetail = NetworkHelper.getInstance().getApiService().getBusDetail(busId);
+                busDetail.enqueue(new Callback<Bus>() {
+                    @Override
+                    public void onResponse(Call<Bus> call, Response<Bus> response) {
+                        Intent intent = new Intent(view.getContext(), BusDetailActivity.class);
+                        intent.putExtra("busDetail", response.body());
+                        view.getContext().startActivity(intent);
+                    }
+
+                    @Override
+                    public void onFailure(Call<Bus> call, Throwable t) {
+
+                    }
+                });
             });
         }
     }
@@ -54,7 +77,11 @@ public class BusListAdapter extends RecyclerView.Adapter<BusListAdapter.CustomVi
 
     @Override
     public void onBindViewHolder(@NonNull CustomViewHolder holder, int position) {
-        holder.departureTime.setText("9:00");
+        SimpleDateFormat departureTimeFormat = new SimpleDateFormat("HH:mm");
+        Date departureDate = new Date(mList.get(position).getDepartureTime());
+        String departureTime = departureTimeFormat.format(departureDate);
+
+        holder.departureTime.setText(departureTime);
         holder.departure.setText(mList.get(position).getDeparture());
         holder.arrival.setText(mList.get(position).getArrival());
     }

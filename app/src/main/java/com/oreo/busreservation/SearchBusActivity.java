@@ -86,6 +86,10 @@ public class SearchBusActivity extends AppCompatActivity {
                 public void onResponse(Call<List<Bus>> call, Response<List<Bus>> response) {
                     Intent intent = new Intent(getApplication(), BusListActivity.class);
                     intent.putExtra("busList", (ArrayList<Bus>)response.body());
+                    intent.putExtra("listDeparture", departure);
+                    intent.putExtra("listArrival", arrival);
+
+                    intent.putExtra("departureDate", dateText.getText().toString());
                     startActivity(intent);
                 }
 
