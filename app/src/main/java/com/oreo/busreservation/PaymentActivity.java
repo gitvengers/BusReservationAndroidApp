@@ -35,7 +35,6 @@ public class PaymentActivity extends AppCompatActivity {
 
         Bus bus = (Bus) getIntent().getSerializableExtra("busDetail");
         SimpleDateFormat dateFormat = new SimpleDateFormat("YYYY년 MM월 dd일 HH시 mm분");
-        System.out.println("PayMent TIme : " + bus.getDepartureTime());
         Date ticketDate = new Date(bus.getDepartureTime());
         String dateText = dateFormat.format(ticketDate);
 

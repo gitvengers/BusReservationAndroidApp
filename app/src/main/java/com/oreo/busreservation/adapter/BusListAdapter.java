@@ -43,13 +43,11 @@ public class BusListAdapter extends RecyclerView.Adapter<BusListAdapter.CustomVi
             view.setOnClickListener(v -> {
                 int adapterPosition = getAdapterPosition();
                 int busId = mList.get(adapterPosition).getBusId();
-                System.out.println("ID : " + busId);
 
                 Call<Bus> busDetail = NetworkHelper.getInstance().getApiService().getBusDetail(busId);
                 busDetail.enqueue(new Callback<Bus>() {
                     @Override
                     public void onResponse(Call<Bus> call, Response<Bus> response) {
-                        System.out.println("BODY : " + response.body());
                         Intent intent = new Intent(view.getContext(), BusDetailActivity.class);
                         intent.putExtra("busDetail", response.body());
                         view.getContext().startActivity(intent);

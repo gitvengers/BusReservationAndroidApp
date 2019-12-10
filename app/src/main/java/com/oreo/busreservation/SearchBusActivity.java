@@ -76,7 +76,6 @@ public class SearchBusActivity extends AppCompatActivity {
             try {
                 String inputDate = dateText.getText().toString();
                 deparetureDate = new Timestamp(date.parse(inputDate).getTime());
-                System.out.println("Search Time : " + deparetureDate.getTime());
             } catch (ParseException e) {
                 e.printStackTrace();
             }
