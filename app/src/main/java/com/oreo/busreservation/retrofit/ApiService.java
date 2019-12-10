@@ -39,7 +39,12 @@ public interface ApiService {
     @GET("/bus/detail")
     Call<Bus> getBusDetail(@Query("busId") int busId);
 
+    @GET("/admin/member/list")
+    Call<List<Member>> getMemberList();
+
     @POST("bus/register")
+    // depart_time is long???
+    // TODO : 백엔드에서는 TimeStamp로 입력받도록 되어있습니다. 확인 필요할듯
     Call<Boolean> busRegister(@Query("departure") String departure,
                               @Query("arrival") String arrival,
                               @Query("depart_time") long depart_time,
