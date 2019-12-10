@@ -76,6 +76,7 @@ public class SearchBusActivity extends AppCompatActivity {
             try {
                 String inputDate = dateText.getText().toString();
                 deparetureDate = new Timestamp(date.parse(inputDate).getTime());
+                System.out.println("Search Time : " + deparetureDate.getTime());
             } catch (ParseException e) {
                 e.printStackTrace();
             }
@@ -88,6 +89,8 @@ public class SearchBusActivity extends AppCompatActivity {
                     intent.putExtra("busList", (ArrayList<Bus>)response.body());
                     intent.putExtra("listDeparture", departure);
                     intent.putExtra("listArrival", arrival);
+
+                    intent.putExtra("departureDate", dateText.getText().toString());
                     startActivity(intent);
                 }
 

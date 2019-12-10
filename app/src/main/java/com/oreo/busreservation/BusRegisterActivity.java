@@ -14,18 +14,35 @@ import org.jetbrains.annotations.NotNull;
 
 import java.sql.Timestamp;
 
+import butterknife.BindView;
+import butterknife.ButterKnife;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
 public class BusRegisterActivity extends AppCompatActivity {
+    @BindView(R.id.register_button)
     Button registerButton;
+
+    @BindView(R.id.departure_edit_text)
     EditText departureText;
+
+    @BindView(R.id.arrival_text_input)
     EditText arrivalText;
+
+    @BindView(R.id.depart_time_text_input)
     EditText depart_timeText;
+
+    @BindView(R.id.arrive_time_text_input)
     EditText arrive_timeText;
+
+    @BindView(R.id.bustype_edit_text)
     EditText bus_type;
+
+    @BindView(R.id.company_edit_text)
     EditText bus_company;
+
+    @BindView(R.id.price_text_input)
     EditText bus_price;
 
 
@@ -33,22 +50,13 @@ public class BusRegisterActivity extends AppCompatActivity {
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_bus_register);
-
-        registerButton = findViewById(R.id.register_button);
-        departureText = findViewById(R.id.departure_edit_text);
-        arrivalText = findViewById(R.id.arrival_edit_text);
-        depart_timeText = findViewById(R.id.depart_time_edit_text);
-        arrive_timeText = findViewById(R.id.arrive_time_edit_text);
-        bus_type = findViewById(R.id.bustype_edit_text);
-        bus_company = findViewById(R.id.company_edit_text);
-        bus_price = findViewById(R.id.price_edit_text);
-
+        ButterKnife.bind(this);
 
         registerButton.setOnClickListener((V)->{
             String departure = departureText.getText().toString();
             String arrival = arrivalText.getText().toString();
-            Timestamp depart_time = Timestamp.valueOf(depart_timeText.getText().toString());
-            Timestamp arrive_time = Timestamp.valueOf(arrive_timeText.getText().toString());
+            long depart_time = Long.parseLong(depart_timeText.getText().toString());
+            long arrive_time = Long.parseLong(arrive_timeText.getText().toString());
             String type = bus_type.getText().toString();
             String company = bus_company.getText().toString();
             int price = Integer.valueOf(bus_price.getText().toString());

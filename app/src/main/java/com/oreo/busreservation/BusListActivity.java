@@ -30,6 +30,9 @@ public class BusListActivity extends AppCompatActivity {
     @BindView(R.id.input_text_arrival)
     TextView arrivalText;
 
+    @BindView(R.id.text_list_departure_date)
+    TextView departureDate;
+
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -46,6 +49,7 @@ public class BusListActivity extends AppCompatActivity {
 
         departureText.setText(getIntent().getStringExtra("listDeparture"));
         arrivalText.setText(getIntent().getStringExtra("listArrival"));
+        departureDate.setText(getIntent().getStringExtra("departureDate"));
 
         BusListAdapter busListAdapter = new BusListAdapter(busList);
 
