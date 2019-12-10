@@ -71,4 +71,5 @@
     <string name="ticket_detail_start_date">출발 날짜</string>
     <string name="ticket_detail_end_date">도착 날짜</string>
     <string name="ticket_detail_type">등급</string>
+    <string name="ticket_detail_seat_number">좌석 번호</string>
 </resources>

@@ -8,9 +8,9 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/common_margin_bottom2"
         android:text="@string/ticket_detail_info"
-        android:textSize="24sp"
-        android:layout_marginBottom="@dimen/common_margin_bottom2"/>
+        android:textSize="24sp" />
 
     <LinearLayout
         android:layout_width="wrap_content"
@@ -58,12 +58,13 @@
             android:textSize="24sp" />
 
     </LinearLayout>
-18
+    18
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:layout_marginBottom="@dimen/common_margin_bottom2">
+        android:layout_marginBottom="@dimen/common_margin_bottom2"
+        android:orientation="horizontal">
 
         <LinearLayout
             android:layout_width="0dp"
@@ -77,6 +78,14 @@
                 android:layout_marginBottom="18dp"
                 android:gravity="center_horizontal"
                 android:text="@string/bus_detail_price"
+                android:textSize="20sp" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="18dp"
+                android:gravity="center_horizontal"
+                android:text="@string/ticket_detail_seat_number"
                 android:textSize="20sp" />
 
             <TextView
@@ -121,6 +130,13 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="18dp"
+                android:text="@string/ticket_detail_seat_number"
+                android:textSize="20sp" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="18dp"
                 android:text="@string/bus_detail_company"
                 android:textSize="20sp" />
 
@@ -143,8 +159,8 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:gravity="center_horizontal">
+        android:gravity="center_horizontal"
+        android:orientation="horizontal">
 
         <Button
             android:layout_width="wrap_content"
