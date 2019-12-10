@@ -1,6 +1,8 @@
 package com.oreo.busreservation;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.widget.Button;
 import android.widget.TextView;
 
 import androidx.annotation.Nullable;
@@ -33,6 +35,12 @@ public class BusDetailActivity extends AppCompatActivity {
     @BindView(R.id.text_bus_detail_price)
     TextView detailTicketPrice;
 
+    @BindView(R.id.btn_confirm)
+    Button confirm;
+
+    @BindView(R.id.btn_reservation_ticket)
+    Button reservationTicket;
+
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -55,5 +63,15 @@ public class BusDetailActivity extends AppCompatActivity {
 
         detailBusCompany.setText(busDetail.getCompany());
         detailTicketPrice.setText(busDetail.getPrice()+" 원");
+
+        confirm.setOnClickListener( v -> {
+            onBackPressed();
+        });
+
+        reservationTicket.setOnClickListener( v -> {
+            Intent intent = new Intent(getApplicationContext(), PaymentActivity.class);
+            intent.putExtra("busDetail", busDetail);
+            startActivity(intent);
+        });
     }
 }
