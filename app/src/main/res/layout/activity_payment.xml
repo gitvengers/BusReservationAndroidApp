@@ -114,18 +114,22 @@
         </LinearLayout>
 
         <RadioGroup
+            android:id="@+id/radioGroup"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content">
 
             <RadioButton
+                android:id="@+id/rg_btn1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/payment_method_credit_card" />
             <RadioButton
+                android:id="@+id/rg_btn2"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/payment_method_bank_account_deposit" />
             <RadioButton
+                android:id="@+id/rg_btn3"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/payment_method_account_transfer" />
