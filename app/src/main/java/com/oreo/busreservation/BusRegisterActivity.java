@@ -74,7 +74,7 @@ public class BusRegisterActivity extends AppCompatActivity {
             String type = bus_type.getText().toString();
             String company = bus_company.getText().toString();
             int price = 0;
-            if (!bus_price.getText().toString().equals("")) {
+            if (isCompleted(type, bus_price.getText().toString(), company, depart_time, arrive_time, departure, arrival)) {
                 price = Integer.valueOf(bus_price.getText().toString());
 
                 Call<Boolean> busRegister = NetworkHelper.getInstance().getApiService().busRegister(departure, arrival, departureDate, arrivalDate, type, company, price);
@@ -98,5 +98,9 @@ public class BusRegisterActivity extends AppCompatActivity {
             else
                 Toast.makeText(BusRegisterActivity.this, "빈칸을 모두 채워주세요.", Toast.LENGTH_SHORT).show();
         });
+    }
+
+    private boolean isCompleted(String type, String price, String company, String depart_time, String arriva_time, String departure, String arrival) {
+        return !type.isEmpty() && !price.isEmpty() && !company.isEmpty() && !depart_time.isEmpty() && !arriva_time.isEmpty() && !departure.isEmpty() && !arrival.isEmpty();
     }
 }
