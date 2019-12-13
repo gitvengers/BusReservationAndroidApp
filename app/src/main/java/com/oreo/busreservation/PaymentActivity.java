@@ -1,11 +1,13 @@
 package com.oreo.busreservation;
 
 import android.os.Bundle;
+import android.widget.Button;
 import android.widget.TextView;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.oreo.busreservation.dialog.CustomDialog;
 import com.oreo.busreservation.domain.Bus;
 
 import java.text.SimpleDateFormat;
@@ -27,6 +29,9 @@ public class PaymentActivity extends AppCompatActivity {
     @BindView(R.id.edit_ticket_payment_price)
     TextView paymentPrice;
 
+    @BindView(R.id.payment_button)
+    Button paymentButton;
+
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -44,5 +49,10 @@ public class PaymentActivity extends AppCompatActivity {
         String priceText = String.valueOf(bus.getPrice());
         price.setText(priceText);
         paymentPrice.setText(priceText);
+
+        paymentButton.setOnClickListener((v) -> {
+            CustomDialog customDialog = new CustomDialog(PaymentActivity.this, bus);
+            customDialog.callDialog();
+        });
     }
 }

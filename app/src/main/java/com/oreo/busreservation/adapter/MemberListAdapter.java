@@ -1,6 +1,5 @@
 package com.oreo.busreservation.adapter;
 
-import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -9,19 +8,10 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.oreo.busreservation.BusDetailActivity;
 import com.oreo.busreservation.R;
-import com.oreo.busreservation.domain.Bus;
 import com.oreo.busreservation.domain.Member;
-import com.oreo.busreservation.retrofit.NetworkHelper;
 
-import java.text.SimpleDateFormat;
-import java.util.Date;
 import java.util.List;
-
-import retrofit2.Call;
-import retrofit2.Callback;
-import retrofit2.Response;
 
 
 public class MemberListAdapter extends RecyclerView.Adapter<MemberListAdapter.CustomViewHolder> {
@@ -50,7 +40,7 @@ public class MemberListAdapter extends RecyclerView.Adapter<MemberListAdapter.Cu
     @Override
     public CustomViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(parent.getContext())
-                .inflate(R.layout.item_bus_list, parent, false);
+                .inflate(R.layout.item_member_list, parent, false);
 
         return new CustomViewHolder(view);
     }
@@ -58,7 +48,7 @@ public class MemberListAdapter extends RecyclerView.Adapter<MemberListAdapter.Cu
     @Override
     public void onBindViewHolder(@NonNull CustomViewHolder holder, int position) {
         // TODO : 여기도 마찬가지로, 백엔드를 건드리지 않게 하는 방법이 있으려나?
-        holder.memberID.setText(mList.get(position).getId());
+        holder.memberID.setText(mList.get(position).getUserId());
         holder.memberName.setText(mList.get(position).getName());
         holder.memberEmail.setText(mList.get(position).getEmail());
     }

@@ -50,8 +50,18 @@ public class LoginActivity extends AppCompatActivity {
                 adminCall.enqueue(new Callback<Admin>() {
                     @Override
                     public void onResponse(Call<Admin> call, Response<Admin> response) {
-                        //TODO : ADMIN 로그인 이후는?
-                        System.out.println("success");
+                        //TODO : ADMIN 로그인
+                        Admin admin = response.body();
+                        if (admin == null) {
+
+                        } else {
+                            System.out.println("GOOD : " + admin.getId());
+                            Admin.setAdmin(admin);
+                            Intent intent = new Intent(getApplication(), MainActivity.class);
+                            intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK);
+                            startActivity(intent);
+                            finish();
+                        }
                     }
 
                     @Override
@@ -69,7 +79,7 @@ public class LoginActivity extends AppCompatActivity {
                         if (member == null) {
 
                         } else {
-                            setMember(member);
+                            Member.setMember(member);
                             Intent intent = new Intent(getApplication(), MainActivity.class);
                             intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK);
                             startActivity(intent);
