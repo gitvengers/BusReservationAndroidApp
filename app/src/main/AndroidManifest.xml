@@ -27,6 +27,8 @@
         <activity android:name=".SignUpActivity"></activity>
         <activity android:name=".PaymentActivity"></activity>
         <activity android:name=".PaymentHistoryActivity"></activity>
+        <activity android:name=".TicketListActivity"></activity>
+        <activity android:name=".TicketDetailActivity"></activity>
     </application>
 
 </manifest>

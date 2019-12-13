@@ -17,6 +17,7 @@ public class MainMemberFragment extends Fragment {
     Button buttonSearchBus;
     Button buttonMyPage;
     Button buttonPaymentHistory;
+    Button buttonConfirmTicket;
 
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -25,6 +26,7 @@ public class MainMemberFragment extends Fragment {
         buttonMyPage = view.findViewById(R.id.btn_member_my_page);
         buttonSearchBus = view.findViewById(R.id.btn_member_bus_search);
         buttonPaymentHistory = view.findViewById(R.id.confirm_payment_history);
+        buttonConfirmTicket = view.findViewById(R.id.confirm_ticket);
 
         buttonMyPage.setText(Member.getInstance().toString());
 
@@ -37,6 +39,12 @@ public class MainMemberFragment extends Fragment {
             Intent intent = new Intent(getActivity(), PaymentHistoryActivity.class);
             startActivity(intent);
         });
+
+        buttonConfirmTicket.setOnClickListener(v -> {
+            Intent intent = new Intent(getActivity(), TicketListActivity.class);
+            startActivity(intent);
+        });
+
 
         return view;
     }
