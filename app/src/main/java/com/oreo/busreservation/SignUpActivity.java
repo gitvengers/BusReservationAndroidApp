@@ -47,7 +47,7 @@ public class SignUpActivity extends AppCompatActivity {
                 @Override
                 public void onResponse(@NotNull Call<Boolean> call, @NotNull Response<Boolean> response) {
                     if(response.body()){
-                        Toast.makeText(SignUpActivity.this,"회원가입이 환료되었습니다.",Toast.LENGTH_SHORT).show();
+                        Toast.makeText(SignUpActivity.this,"회원가입이 완료되었습니다.",Toast.LENGTH_SHORT).show();
                         onBackPressed();
                     }
                     else{
