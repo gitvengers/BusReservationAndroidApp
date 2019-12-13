@@ -12,23 +12,21 @@ import androidx.fragment.app.Fragment;
 
 import com.oreo.busreservation.domain.Member;
 
-import butterknife.BindView;
-import butterknife.ButterKnife;
 
 public class MainMemberFragment extends Fragment {
-//    @BindView(R.id.btn_member_bus_search)
     Button buttonSearchBus;
-
-//    @BindView(R.id.btn_member_my_page)
     Button buttonMyPage;
+    Button buttonPaymentHistory;
+    Button buttonConfirmTicket;
 
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_main_member, container, false);
-//        ButterKnife.bind(view);
 
         buttonMyPage = view.findViewById(R.id.btn_member_my_page);
         buttonSearchBus = view.findViewById(R.id.btn_member_bus_search);
+        buttonPaymentHistory = view.findViewById(R.id.confirm_payment_history);
+        buttonConfirmTicket = view.findViewById(R.id.confirm_ticket);
 
         buttonMyPage.setText(Member.getInstance().toString());
 
@@ -36,6 +34,18 @@ public class MainMemberFragment extends Fragment {
             Intent intent = new Intent(getActivity(), SearchBusActivity.class);
             startActivity(intent);
         });
+
+        buttonPaymentHistory.setOnClickListener(v -> {
+            Intent intent = new Intent(getActivity(), PaymentHistoryActivity.class);
+            startActivity(intent);
+        });
+
+        buttonConfirmTicket.setOnClickListener(v -> {
+            Intent intent = new Intent(getActivity(), TicketListActivity.class);
+            startActivity(intent);
+        });
+
+
         return view;
     }
 }
