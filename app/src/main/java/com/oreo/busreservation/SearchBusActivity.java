@@ -67,6 +67,19 @@ public class SearchBusActivity extends AppCompatActivity {
             dialog.show();
         });
 
+        dateText.setOnClickListener(view -> {
+
+            DatePickerDialog dialog = new DatePickerDialog(SearchBusActivity.this, (datePicker, year, month, date) -> {
+
+                String msg = String.format("%d 년 %d 월 %d 일", year, month + 1, date);
+                Toast.makeText(SearchBusActivity.this, msg, Toast.LENGTH_SHORT).show();
+                dateText.setText(msg);
+            }, cal.get(Calendar.YEAR), cal.get(Calendar.MONTH), cal.get(Calendar.DATE));
+
+            dialog.getDatePicker().setMinDate(new Date().getTime());    //입력한 날짜 이후로 클릭 안되게 옵션
+            dialog.show();
+        });
+
         searchBus.setOnClickListener(view -> {
             SimpleDateFormat date = new SimpleDateFormat("yyyy 년 MM 월 dd 일", Locale.KOREAN);
             String departure = departureText.getText().toString();
