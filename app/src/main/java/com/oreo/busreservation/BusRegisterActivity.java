@@ -10,8 +10,6 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.oreo.busreservation.retrofit.NetworkHelper;
 
-import org.jetbrains.annotations.NotNull;
-
 import java.sql.Timestamp;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -54,7 +52,7 @@ public class BusRegisterActivity extends AppCompatActivity {
         setContentView(R.layout.activity_bus_register);
         ButterKnife.bind(this);
 
-        registerButton.setOnClickListener((V)->{
+        registerButton.setOnClickListener((V) -> {
             String departure = departureText.getText().toString();
             String arrival = arrivalText.getText().toString();
             // TODO YYYY-MM-dd HH:mm:ss
@@ -75,26 +73,30 @@ public class BusRegisterActivity extends AppCompatActivity {
 
             String type = bus_type.getText().toString();
             String company = bus_company.getText().toString();
-            int price = Integer.valueOf(bus_price.getText().toString());
+            int price = 0;
+            if (!bus_price.getText().toString().equals("")) {
+                price = Integer.valueOf(bus_price.getText().toString());
 
-            Call<Boolean> busRegister = NetworkHelper.getInstance().getApiService().busRegister(departure,arrival,departureDate,arrivalDate,type,company,price);
-            busRegister.enqueue(new Callback<Boolean>() {
-                @Override
-                public void onResponse(Call<Boolean> call, Response<Boolean> response) {
-                    if(response.isSuccessful()){
-                        Toast.makeText(BusRegisterActivity.this,"success",Toast.LENGTH_SHORT).show();
-                        onBackPressed();
+                Call<Boolean> busRegister = NetworkHelper.getInstance().getApiService().busRegister(departure, arrival, departureDate, arrivalDate, type, company, price);
+                busRegister.enqueue(new Callback<Boolean>() {
+                    @Override
+                    public void onResponse(Call<Boolean> call, Response<Boolean> response) {
+                        if (response.isSuccessful()) {
+                            Toast.makeText(BusRegisterActivity.this, "success", Toast.LENGTH_SHORT).show();
+                            onBackPressed();
+                        } else {
+                            Toast.makeText(BusRegisterActivity.this, "failed", Toast.LENGTH_SHORT).show();
+                        }
                     }
-                    else{
-                        Toast.makeText(BusRegisterActivity.this,"failed",Toast.LENGTH_SHORT).show();
+
+                    @Override
+                    public void onFailure(Call<Boolean> call, Throwable t) {
+
                     }
-                }
-
-                @Override
-                public void onFailure(Call<Boolean> call, Throwable t) {
-
-                }
-            });
+                });
+            }
+            else
+                Toast.makeText(BusRegisterActivity.this, "빈칸을 모두 채워주세요.", Toast.LENGTH_SHORT).show();
         });
     }
 }
