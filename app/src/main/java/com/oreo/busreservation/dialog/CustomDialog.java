@@ -52,7 +52,7 @@ public class CustomDialog {
 
                 @Override
                 public void onFailure(Call<Boolean> call, Throwable t) {
-                    Toast.makeText(context, "네트워크 오류", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(context, "버스 티켓 예매에 실패하셨습니다.", Toast.LENGTH_SHORT).show();
                 }
             });
 

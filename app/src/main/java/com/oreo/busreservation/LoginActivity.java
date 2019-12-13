@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Switch;
+import android.widget.Toast;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
@@ -77,7 +78,7 @@ public class LoginActivity extends AppCompatActivity {
                     public void onResponse(Call<Member> call, Response<Member> response) {
                         Member member = response.body();
                         if (member == null) {
-
+                            Toast.makeText(LoginActivity.this,"아이디 혹은 비밃번호가 일치하지 않습니다.",Toast.LENGTH_SHORT).show();
                         } else {
                             Member.setMember(member);
                             Intent intent = new Intent(getApplication(), MainActivity.class);
@@ -90,7 +91,7 @@ public class LoginActivity extends AppCompatActivity {
 
                     @Override
                     public void onFailure(Call<Member> call, Throwable t) {
-
+                        Toast.makeText(LoginActivity.this,"로그인에 실패하였습니다.",Toast.LENGTH_SHORT).show();
                     }
                 });
             }

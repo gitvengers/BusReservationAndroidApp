@@ -22,6 +22,7 @@ public class SignUpActivity extends AppCompatActivity {
     EditText pwEditText;
     EditText nameEditText;
     EditText emailEditText;
+    Button cancelButton;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -33,7 +34,7 @@ public class SignUpActivity extends AppCompatActivity {
         pwEditText = findViewById(R.id.password_edit_text);
         nameEditText = findViewById(R.id.name_edit_text);
         emailEditText = findViewById(R.id.email_edit_text);
-
+        cancelButton = findViewById(R.id.cancel_button);
 
         signUpButton.setOnClickListener((V)->{
             String userId = idEditText.getText().toString();
@@ -45,12 +46,13 @@ public class SignUpActivity extends AppCompatActivity {
             memberCall.enqueue(new Callback<Boolean>() {
                 @Override
                 public void onResponse(@NotNull Call<Boolean> call, @NotNull Response<Boolean> response) {
-                    if(response.isSuccessful()){
-                        Toast.makeText(SignUpActivity.this,"success",Toast.LENGTH_SHORT).show();
+                    if(response.body()){
+                        Toast.makeText(SignUpActivity.this,"회원가입이 환료되었습니다.",Toast.LENGTH_SHORT).show();
                         onBackPressed();
                     }
                     else{
-                        Toast.makeText(SignUpActivity.this,"failed",Toast.LENGTH_SHORT).show();
+                        Toast.makeText(SignUpActivity.this,"회원가입이 실패했습니다.",Toast.LENGTH_SHORT).show();
+                        onBackPressed();
                     }
                 }
 
@@ -59,6 +61,10 @@ public class SignUpActivity extends AppCompatActivity {
 
                 }
             });
+        });
+
+        cancelButton.setOnClickListener(v -> {
+            onBackPressed();
         });
     }
 }
