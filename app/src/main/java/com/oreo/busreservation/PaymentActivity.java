@@ -2,7 +2,9 @@ package com.oreo.busreservation;
 
 import android.os.Bundle;
 import android.widget.Button;
+import android.widget.RadioGroup;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
@@ -32,6 +34,9 @@ public class PaymentActivity extends AppCompatActivity {
     @BindView(R.id.payment_button)
     Button paymentButton;
 
+    @BindView(R.id.radioGroup)
+    RadioGroup radioGroup;
+
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -45,14 +50,19 @@ public class PaymentActivity extends AppCompatActivity {
 
         dateNtime.setText(dateText);
         busCompany.setText(bus.getCompany());
+        int checkedRadioButtonId = radioGroup.getCheckedRadioButtonId();
 
         String priceText = String.valueOf(bus.getPrice());
         price.setText(priceText);
         paymentPrice.setText(priceText);
 
         paymentButton.setOnClickListener((v) -> {
-            CustomDialog customDialog = new CustomDialog(PaymentActivity.this, bus);
-            customDialog.callDialog();
+            if (checkedRadioButtonId == 0) {
+                Toast.makeText(this, "결제 방법을 선택해주세요.", Toast.LENGTH_SHORT).show();
+            } else {
+                CustomDialog customDialog = new CustomDialog(PaymentActivity.this, bus);
+                customDialog.callDialog();
+            }
         });
     }
 }
