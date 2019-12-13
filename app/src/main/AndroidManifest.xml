@@ -26,6 +26,8 @@
         <activity android:name=".BusDetailActivity"></activity>
         <activity android:name=".SignUpActivity"></activity>
         <activity android:name=".PaymentActivity"></activity>
+        <activity android:name=".BusRegisterActivity"></activity>
+        <activity android:name=".MemberListActivity"></activity>
     </application>
 
 </manifest>

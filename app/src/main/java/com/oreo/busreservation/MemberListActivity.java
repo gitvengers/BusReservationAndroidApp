@@ -33,21 +33,15 @@ public class MemberListActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_member_list);
         ButterKnife.bind(this);
+
         LinearLayoutManager mLinearLayoutManager = new LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false);
-
         mRecyclerView.setLayoutManager(mLinearLayoutManager);
-
-//        ArrayList<Bus> busList = (ArrayList<Bus>)getIntent().getSerializableExtra("busList");
-
-//        departureText.setText(getIntent().getStringExtra("listDeparture"));
-//        arrivalText.setText(getIntent().getStringExtra("listArrival"));
-//
 
         Call<List<Member>> memberArrayList = NetworkHelper.getInstance().getApiService().getMemberList();
         memberArrayList.enqueue(new Callback<List<Member>>() {
             @Override
             public void onResponse(Call<List<Member>> call, Response<List<Member>> response) {
-                MemberListAdapter memberListAdapter = new MemberListAdapter((List<Member>) memberArrayList);
+                MemberListAdapter memberListAdapter = new MemberListAdapter(response.body());
                 mRecyclerView.setAdapter(memberListAdapter);
             }
 

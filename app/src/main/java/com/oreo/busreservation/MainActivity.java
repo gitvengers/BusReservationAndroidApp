@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
 
+import com.oreo.busreservation.domain.Admin;
 import com.oreo.busreservation.domain.Member;
 
 public class MainActivity extends AppCompatActivity {
@@ -20,10 +21,17 @@ public class MainActivity extends AppCompatActivity {
                     .commit();
         }
 
+        System.out.println("ADMIN : " + Admin.getInstance().getId());
+
         if (Member.getInstance().getUserId() != null) {
             getSupportFragmentManager()
                     .beginTransaction()
                     .add(R.id.container, new MainMemberFragment())
+                    .commit();
+        } else if (Admin.getInstance().getId() != null) {
+            getSupportFragmentManager()
+                    .beginTransaction()
+                    .add(R.id.container, new MainAdminFragment())
                     .commit();
         }
     }
