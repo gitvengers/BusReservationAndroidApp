@@ -73,12 +73,12 @@
     <!--  Payment History Item  -->
     <string name="payment_history_item_detail_info">상세&#10;보기</string>
 
-    <!--  Ticket List Activity  -->
+    <!--  TicketDetail List Activity  -->
     <string name="ticket_list_header">티켓 목록 조회</string>
-    <!--  Ticket List Item  -->
+    <!--  TicketDetail List Item  -->
     <string name="ticket_item_id">티켓번호 : </string>
 
-    <!--  Ticket Detail Activity  -->
+    <!--  TicketDetail Detail Activity  -->
     <string name="ticket_detail_info">티켓 상세 정보</string>
     <string name="ticket_detail_start_date">출발 날짜</string>
     <string name="ticket_detail_end_date">도착 날짜</string>

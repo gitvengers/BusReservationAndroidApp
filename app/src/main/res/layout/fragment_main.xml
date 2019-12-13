@@ -24,14 +24,14 @@
             android:textSize="30sp"
             android:textStyle="bold"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toStartOf="@id/register_bus"
+            app:layout_constraintEnd_toStartOf="@id/confirm_ticket"
             app:layout_constraintHorizontal_weight="1"
             app:layout_constraintStart_toStartOf="parent"
             app:strokeColor="@color/strokeColor"
             app:strokeWidth="1dp" />
 
         <androidx.appcompat.widget.AppCompatButton
-            android:id="@+id/register_bus"
+            android:id="@+id/confirm_ticket"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:background="@color/primaryTextColor"
